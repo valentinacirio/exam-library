@@ -1,0 +1,391 @@
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+}
+
+.header {
+  background-color: var(--primary-color);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+}
+
+.header h1 {
+  color: var(--background-color);
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.add-button {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-button:hover {
+  background-color: #00cccc;
+  transform: translateY(-2px);
+}
+
+.dashboard {
+  background-color: rgba(255, 140, 0, 0.1);
+  border-radius: var(--border-radius);
+  margin: 20px 0;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--border-radius);
+  padding: 15px;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.stat-card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--background-color);
+}
+
+.stat-card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.search-sort {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  gap: 15px;
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  border: 2px solid var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+}
+
+.search-bar svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+}
+
+.sort-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sort-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.sort-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.sort-button.active {
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color);
+}
+
+.exams-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.exams-table th, .exams-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 140, 0, 0.2);
+}
+
+.exams-table th {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.exams-table tr:hover {
+  background-color: rgba(255, 140, 0, 0.1);
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.status.passed {
+  background-color: var(--success-color);
+  color: var(--background-color);
+}
+
+.status.failed {
+  background-color: var(--error-color);
+  color: var(--text-color);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+}
+
+.delete-button {
+  background-color: var(--error-color);
+  color: var(--text-color);
+}
+
+.edit-button:hover, .delete-button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+.modal-header h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: var(--error-color);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 10px 20px;
+}
+
+.cancel-button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 10px 20px;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.cancel-button:hover {
+  border-color: var(--error-color);
+  color: var(--error-color);
+}
+
+.confirmation-modal .modal {
+  max-width: 400px;
+  text-align: center;
+}
+
+.confirmation-modal p {
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.confirm-button {
+  background-color: var(--error-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+}
+
+.confirm-button:hover {
+  background-color: #ff0000;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+}
+
+.empty-state h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.empty-state button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 10px 20px;
+}
+
+.empty-state button:hover {
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .search-sort {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sort-buttons {
+    justify-content: center;
+  }
+  
+  .exams-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .stat-card {
+    padding: 10px;
+  }
+  
+  .stat-card h3 {
+    font-size: 0.9rem;
+  }
+  
+  .stat-card p {
+    font-size: 1.5rem;
+  }
+}
